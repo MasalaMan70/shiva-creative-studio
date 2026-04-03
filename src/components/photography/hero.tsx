@@ -14,7 +14,7 @@ export function PhotographyHero({ heroImage }: { heroImage: string }) {
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/50 to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#2D2A26]/60 via-[#2D2A26]/40 to-[#2D2A26]/70" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
         <motion.div
@@ -22,13 +22,13 @@ export function PhotographyHero({ heroImage }: { heroImage: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl">
+          <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-7xl lg:text-8xl">
             Book a
             <br />
-            <span className="text-accent">Photoshoot</span>
+            <em className="italic">Photoshoot</em>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-lg text-foreground/70 md:text-xl">
+          <p className="mx-auto mt-6 max-w-xl text-lg text-white/70 md:text-xl">
             Portraits, brand photography, events, and creative sessions.
             Directed, lit, and retouched to elevate your image.
           </p>

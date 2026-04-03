@@ -139,7 +139,7 @@ export default function ServicesPage() {
               )}
               <h3 className="font-display text-xl font-bold">{tier.name}</h3>
               <div className="mt-2">
-                <span className="font-display text-3xl font-bold text-accent">
+                <span className="font-display text-3xl font-bold text-foreground">
                   {tier.price}
                 </span>
                 <span className="text-sm text-muted">{tier.period}</span>

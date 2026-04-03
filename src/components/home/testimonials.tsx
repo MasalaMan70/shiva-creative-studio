@@ -7,7 +7,7 @@ import { TESTIMONIALS } from "@/lib/constants";
 
 export function Testimonials() {
   return (
-    <Section className="bg-surface">
+    <Section className="bg-accent-light">
       <SectionHeading
         label="Testimonials"
         title="What Clients Say"

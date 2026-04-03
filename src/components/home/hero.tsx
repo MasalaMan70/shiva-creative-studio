@@ -2,41 +2,34 @@
 
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Play } from "lucide-react";
+
+const STATS = [
+  { value: "50+", label: "projects delivered" },
+  { value: "3x", label: "average ROI" },
+  { value: "100%", label: "client retention" },
+];
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-surface" />
-
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
+    <section className="relative overflow-hidden">
+      <div className="mx-auto max-w-6xl px-6 pb-16 pt-32 md:pb-24 md:pt-44">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="text-center"
         >
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-            Full Stack Creative Studio
+          <p className="mb-6 font-body text-sm tracking-widest text-muted">
+            full stack creative studio
           </p>
 
-          <h1 className="font-display text-[2.75rem] font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl">
-            Content That
+          <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl">
+            Content that
             <br />
-            <span className="text-accent">Sells.</span>
+            <em className="italic">sells.</em>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-lg text-muted md:text-xl">
+          <p className="mx-auto mt-6 max-w-lg text-lg text-muted">
             Cinema-grade videography, photography, and social media marketing.
             Scripted for conversion. Produced to stand out.
           </p>
@@ -46,32 +39,35 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-10 text-center"
         >
           <Button href="/book" size="lg">
             Book a Discovery Call
           </Button>
-          <Button href="/work" variant="outline" size="lg">
-            <Play size={16} className="mr-2" />
-            View Work
-          </Button>
+        </motion.div>
+
+        {/* Stats bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-16 grid grid-cols-3 gap-4 md:mt-24"
+        >
+          {STATS.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-sm bg-surface px-4 py-6 text-center md:px-8 md:py-8"
+            >
+              <p className="font-display text-2xl font-bold italic md:text-3xl">
+                {stat.value}
+              </p>
+              <p className="mt-1 text-xs text-muted md:text-sm">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </motion.div>
       </div>
-
-      {/* Scroll indicator — hidden on mobile to avoid overlap */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 md:block"
-      >
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-[0.2em] text-muted">
-            Scroll
-          </span>
-          <div className="h-8 w-[1px] animate-pulse bg-gradient-to-b from-muted to-transparent" />
-        </div>
-      </motion.div>
     </section>
   );
 }

@@ -54,13 +54,13 @@ export function CalEmbed() {
       calLink,
       layout: "month_view",
       config: {
-        theme: "dark",
+        theme: "light",
       },
     });
 
     Cal("ui", {
-      theme: "dark",
-      styles: { branding: { brandColor: "#D4A853" } },
+      theme: "light",
+      styles: { branding: { brandColor: "#556B48" } },
       hideEventTypeDetails: false,
       layout: "month_view",
     });

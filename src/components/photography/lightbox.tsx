@@ -73,14 +73,14 @@ export function Lightbox({
       }}
     >
       <div
-        className="flex h-full w-full items-center justify-center bg-background/95"
+        className="flex h-full w-full items-center justify-center bg-[#2D2A26]/95"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-10 rounded-full bg-surface/80 p-2 text-foreground transition-colors hover:bg-surface"
+          className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
           aria-label="Close"
         >
           <X size={24} />
@@ -90,7 +90,7 @@ export function Lightbox({
         {currentIndex > 0 && (
           <button
             onClick={goPrev}
-            className="absolute left-4 z-10 rounded-full bg-surface/80 p-2 text-foreground transition-colors hover:bg-surface"
+            className="absolute left-4 z-10 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
             aria-label="Previous photo"
           >
             <ChevronLeft size={28} />
@@ -101,7 +101,7 @@ export function Lightbox({
         {currentIndex < photos.length - 1 && (
           <button
             onClick={goNext}
-            className="absolute right-4 z-10 rounded-full bg-surface/80 p-2 text-foreground transition-colors hover:bg-surface"
+            className="absolute right-4 z-10 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
             aria-label="Next photo"
           >
             <ChevronRight size={28} />
@@ -131,7 +131,7 @@ export function Lightbox({
         </AnimatePresence>
 
         {/* Counter */}
-        <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-muted">
+        <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/60">
           {currentIndex + 1} / {photos.length}
         </p>
       </div>

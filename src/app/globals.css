@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0A0A0A;
-  --color-surface: #141414;
-  --color-surface-light: #1A1A1A;
-  --color-border: #2A2A2A;
-  --color-foreground: #EDEDED;
-  --color-muted: #888888;
-  --color-accent: #D4A853;
-  --color-accent-hover: #E0B96A;
-  --font-display: var(--font-plus-jakarta);
+  --color-background: #F5F0EA;
+  --color-surface: #EDE8E1;
+  --color-surface-light: #E6E0D8;
+  --color-border: #D5CFC7;
+  --color-foreground: #2D2A26;
+  --color-muted: #635D55;
+  --color-accent: #556B48;
+  --color-accent-hover: #475A3C;
+  --color-accent-light: #E8EDE4;
+  --color-footer-bg: #2D2A26;
+  --color-footer-text: #F5F0EA;
+  --font-display: var(--font-playfair);
   --font-body: var(--font-inter);
 }
 
@@ -29,7 +32,7 @@ h1, h2, h3, h4, h5, h6 {
 
 ::selection {
   background-color: var(--color-accent);
-  color: #0A0A0A;
+  color: #F5F0EA;
 }
 
 /* Scrollbar */
