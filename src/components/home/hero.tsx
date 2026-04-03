@@ -12,57 +12,61 @@ const STATS = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="mx-auto max-w-6xl px-6 pb-10 pt-28 md:pb-16 md:pt-36">
+      <div className="mx-auto max-w-6xl px-6 pt-28 md:pt-36">
+        {/* Video with overlay text */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center"
+          className="relative overflow-hidden rounded-lg md:rounded-xl"
         >
-          <p className="mb-4 font-body text-sm tracking-widest text-muted md:mb-6">
-            full stack creative studio
-          </p>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="aspect-[16/9] w-full object-cover md:aspect-[2/1]"
+          >
+            <source src="/hero-reel.mp4" type="video/mp4" />
+          </video>
 
-          <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl">
-            Content that
-            <br />
-            <em className="italic">sells.</em>
-          </h1>
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#2D2A26]/50 via-[#2D2A26]/30 to-[#2D2A26]/60" />
 
-          <p className="mx-auto mt-4 max-w-lg text-base text-muted md:mt-6 md:text-lg">
-            Cinema-grade videography, photography, and social media marketing.
-            Scripted for conversion. Produced to stand out.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-8 text-center md:mt-10"
-        >
-          <Button href="/book" size="lg">
-            Book a Discovery Call
-          </Button>
-        </motion.div>
-
-        {/* Hero video */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-10 md:mt-14"
-        >
-          <div className="overflow-hidden rounded-lg md:rounded-xl">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="aspect-video w-full object-cover"
+          {/* Text overlay */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+            <p
+              className="mb-3 text-xs tracking-widest text-white/70 md:mb-4 md:text-sm"
+              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.4)" }}
             >
-              <source src="/hero-reel.mp4" type="video/mp4" />
-            </video>
+              full stack creative studio
+            </p>
+
+            <h1
+              className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl"
+              style={{ textShadow: "0 2px 8px rgba(0,0,0,0.3)" }}
+            >
+              Content that
+              <br />
+              <em className="italic">sells.</em>
+            </h1>
+
+            <p
+              className="mx-auto mt-3 max-w-md text-sm text-white/80 md:mt-4 md:text-base"
+              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.4)" }}
+            >
+              Cinema-grade videography, photography, and social media marketing.
+              Scripted for conversion. Produced to stand out.
+            </p>
+
+            <div className="mt-6 md:mt-8">
+              <a
+                href="/book"
+                className="inline-flex items-center justify-center rounded-sm bg-white/90 px-8 py-3 text-sm font-semibold uppercase tracking-wide text-[#2D2A26] shadow-lg backdrop-blur-sm transition-all hover:bg-white"
+              >
+                Book a Discovery Call
+              </a>
+            </div>
           </div>
         </motion.div>
 
@@ -70,8 +74,8 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-6 grid grid-cols-3 gap-3 md:mt-8 md:gap-4"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-6 grid grid-cols-3 gap-3 pb-10 md:mt-8 md:gap-4 md:pb-16"
         >
           {STATS.map((stat) => (
             <div
