@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { CATEGORY_LABELS, type Photo } from "@/lib/photos";
@@ -18,10 +18,20 @@ export function MasonryGallery({
   const [activeFilter, setActiveFilter] = useState<string>(initialFilter);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
+  // Shuffle once on mount so back-to-back photos from the same shoot are spread out
+  const shuffled = useMemo(() => {
+    const arr = [...photos];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }, [photos]);
+
   const filtered =
     activeFilter === "all"
-      ? photos
-      : photos.filter((p) => p.category === activeFilter);
+      ? shuffled
+      : shuffled.filter((p) => p.category === activeFilter);
 
   return (
     <>
