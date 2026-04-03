@@ -35,8 +35,11 @@ export function ServicesOverview() {
         transition={{ duration: 0.6 }}
         className="mb-10 text-center md:mb-16"
       >
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">
+          What We Do
+        </p>
         <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-          The method <em className="italic">behind the<br />movement</em>
+          Full-Service Creative<br /><em className="italic">Production</em>
         </h2>
       </motion.div>
 
@@ -50,7 +53,7 @@ export function ServicesOverview() {
           className="overflow-hidden rounded-lg"
         >
           <Image
-            src="/photos/full/portraits/b1081164.jpg"
+            src="/profilepic.jpg"
             alt="Shiva Pawar — Creative Director"
             width={800}
             height={1000}
