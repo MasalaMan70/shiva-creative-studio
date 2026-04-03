@@ -7,7 +7,7 @@ import { Camera } from "lucide-react";
 
 export function PhotographyHero({ heroImage }: { heroImage: string }) {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
       <Image
         src={heroImage}
         alt="Photography by Shiva"
@@ -34,7 +34,7 @@ export function PhotographyHero({ heroImage }: { heroImage: string }) {
             <span className="text-accent">Photoshoot</span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-lg text-muted md:text-xl">
+          <p className="mx-auto mt-6 max-w-xl text-lg text-foreground/70 md:text-xl">
             Portraits, brand photography, events, and creative sessions.
             Directed, lit, and retouched to elevate your image.
           </p>

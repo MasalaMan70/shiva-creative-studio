@@ -2,12 +2,14 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { User, ShoppingBag, Sparkles } from "lucide-react";
 
 const SHOOT_TYPES = [
   {
     title: "Ecommerce",
+    filter: "ecommerce",
     description:
       "Ecommerce, lookbook, and lifestyle product photography. Styled, directed, and retouched for your brand.",
     icon: ShoppingBag,
@@ -15,6 +17,7 @@ const SHOOT_TYPES = [
   },
   {
     title: "Portraits",
+    filter: "portraits",
     description:
       "Professional portraits, personal branding, and headshots. Studio or on-location with professional lighting.",
     icon: User,
@@ -22,10 +25,11 @@ const SHOOT_TYPES = [
   },
   {
     title: "Travel",
+    filter: "travel",
     description:
       "Travel, street, and lifestyle photography. Candid moments and editorial compositions.",
     icon: Sparkles,
-    image: "/photos/thumb/travel/dscf3898.jpg",
+    image: "/photos/thumb/travel/dscf2416.jpg",
   },
 ];
 
@@ -45,26 +49,30 @@ export function ShootTypes() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group overflow-hidden rounded-sm border border-border/50 bg-surface transition-colors hover:border-accent/30"
           >
-            <div className="relative aspect-[3/4] overflow-hidden">
-              <Image
-                src={type.image}
-                alt={type.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-              />
-            </div>
-            <div className="p-5">
-              <div className="mb-2 flex items-center gap-2">
-                <type.icon size={16} className="text-accent" />
-                <h3 className="font-display text-sm font-bold">{type.title}</h3>
+            <Link
+              href={`/photography/gallery?filter=${type.filter}`}
+              className="group block overflow-hidden rounded-sm border border-border/50 bg-surface transition-colors hover:border-accent/30"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src={type.image}
+                  alt={type.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
               </div>
-              <p className="text-xs leading-relaxed text-muted">
-                {type.description}
-              </p>
-            </div>
+              <div className="p-5">
+                <div className="mb-2 flex items-center gap-2">
+                  <type.icon size={16} className="text-accent" />
+                  <h3 className="font-display text-sm font-bold">{type.title}</h3>
+                </div>
+                <p className="text-xs leading-relaxed text-muted">
+                  {type.description}
+                </p>
+              </div>
+            </Link>
           </motion.div>
         ))}
       </div>

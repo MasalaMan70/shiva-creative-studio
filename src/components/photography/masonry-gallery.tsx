@@ -8,8 +8,14 @@ import { Lightbox } from "./lightbox";
 
 const FILTERS = ["all", "ecommerce", "portraits", "travel"] as const;
 
-export function MasonryGallery({ photos }: { photos: Photo[] }) {
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+export function MasonryGallery({
+  photos,
+  initialFilter = "all",
+}: {
+  photos: Photo[];
+  initialFilter?: string;
+}) {
+  const [activeFilter, setActiveFilter] = useState<string>(initialFilter);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const filtered =
