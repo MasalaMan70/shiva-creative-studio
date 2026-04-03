@@ -127,12 +127,12 @@ export default function ServicesPage() {
               key={tier.name}
               className={cn(
                 "rounded-sm border p-8 transition-all",
-                tier.featured
+                "featured" in tier && tier.featured
                   ? "border-accent/50 bg-background shadow-lg shadow-accent/5"
                   : "border-border/50 bg-background"
               )}
             >
-              {tier.featured && (
+              {"featured" in tier && tier.featured && (
                 <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
                   Most Popular
                 </p>
@@ -161,7 +161,7 @@ export default function ServicesPage() {
               <div className="mt-8">
                 <Button
                   href="/book"
-                  variant={tier.featured ? "primary" : "outline"}
+                  variant={"featured" in tier && tier.featured ? "primary" : "outline"}
                   className="w-full"
                 >
                   Get Started
