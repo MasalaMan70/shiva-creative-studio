@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SITE_NAME, NAV_LINKS } from "@/lib/constants";
 import { Camera, Video, Briefcase } from "lucide-react";
 
@@ -9,9 +10,13 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <p className="font-display text-xl font-bold tracking-widest">
-              {SITE_NAME}
-            </p>
+            <Image
+              src="/logo.png"
+              alt="SHIVA"
+              width={100}
+              height={40}
+              className="invert"
+            />
             <p className="mt-3 text-sm text-muted">
               Retainer-based videography, photography, and social media
               marketing. Content that sells.

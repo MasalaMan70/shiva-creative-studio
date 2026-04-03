@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 
 export function Header() {
@@ -14,12 +15,19 @@ export function Header() {
     <header className="fixed top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="font-display text-xl font-bold tracking-widest">
-          {SITE_NAME}
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="SHIVA"
+            width={100}
+            height={40}
+            className="invert"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
