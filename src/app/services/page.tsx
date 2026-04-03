@@ -70,7 +70,7 @@ export default function ServicesPage() {
       <Section>
         <SectionHeading
           label="Services"
-          title="Everything Your Brand Needs"
+          title="All Things Digital Marketing"
           description="Four core capabilities, one integrated team. Every service is designed to work together as a single content engine."
         />
 

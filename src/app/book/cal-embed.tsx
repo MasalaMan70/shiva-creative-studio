@@ -1,46 +1,69 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export function CalEmbed() {
-  const calLink = process.env.NEXT_PUBLIC_CAL_LINK || "shiva-pawar-bzbyk0/30min";
+  const calLink =
+    process.env.NEXT_PUBLIC_CAL_LINK || "shiva-pawar-bzbyk0/30min";
+  const initialized = useRef(false);
 
   useEffect(() => {
-    // Dynamically load Cal.com embed script
-    const script = document.createElement("script");
-    script.src = "https://app.cal.com/embed/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
+    if (initialized.current) return;
+    initialized.current = true;
 
-    script.onload = () => {
-      // @ts-expect-error Cal is loaded globally by the embed script
-      if (window.Cal) {
-        // @ts-expect-error Cal is loaded globally by the embed script
-        window.Cal("init", {
-          origin: "https://app.cal.com",
-        });
-        // @ts-expect-error Cal is loaded globally by the embed script
-        window.Cal("inline", {
-          elementOrSelector: "#cal-embed",
-          calLink,
-          layout: "month_view",
-          config: {
-            theme: "dark",
-          },
-        });
-        // @ts-expect-error Cal is loaded globally by the embed script
-        window.Cal("ui", {
-          theme: "dark",
-          styles: { branding: { brandColor: "#D4A853" } },
-          hideEventTypeDetails: false,
-          layout: "month_view",
-        });
-      }
-    };
+    (function (C: Window & { Cal?: any }, A: string, L: string) {
+      const p = function (a: any, ar: any) {
+        a.q.push(ar);
+      };
+      const d = C.document;
+      C.Cal =
+        C.Cal ||
+        function (...args: any[]) {
+          const cal = C.Cal!;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A;
+            cal.loaded = true;
+          }
+          if (args[0] === L) {
+            const api = function (...apiArgs: any[]) {
+              p(api, apiArgs);
+            };
+            const namespace = args[1];
+            (api as any).q = (api as any).q || [];
+            if (typeof namespace === "string") {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], args);
+              p(cal, ["initNamespace", namespace]);
+            } else {
+              p(cal, args);
+            }
+            return;
+          }
+          p(cal, args);
+        };
+    })(window as any, "https://app.cal.com/embed/embed.js", "init");
 
-    return () => {
-      document.body.removeChild(script);
-    };
+    const Cal = (window as any).Cal;
+
+    Cal("init", { origin: "https://cal.com" });
+
+    Cal("inline", {
+      elementOrSelector: "#cal-embed",
+      calLink,
+      layout: "month_view",
+      config: {
+        theme: "dark",
+      },
+    });
+
+    Cal("ui", {
+      theme: "dark",
+      styles: { branding: { brandColor: "#D4A853" } },
+      hideEventTypeDetails: false,
+      layout: "month_view",
+    });
   }, [calLink]);
 
   return (

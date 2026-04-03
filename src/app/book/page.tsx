@@ -15,7 +15,7 @@ export default function BookPage() {
         <SectionHeading
           label="Let's Talk"
           title="Book a Discovery Call"
-          description="A free 15-minute call to discuss your brand, your goals, and whether we're a good fit. No pressure, no pitch — just a real conversation."
+          description="A 15-minute call to discuss your brand, your goals, and whether we're a good fit. No pressure, no pitch — this is a conversation to understand your vision."
         />
 
         <div className="mx-auto max-w-3xl">

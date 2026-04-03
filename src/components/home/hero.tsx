@@ -27,7 +27,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
         >
           <p className="mb-6 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-            Retainer-Based Creative Studio
+            Full Stack Creative Studio
           </p>
 
           <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl">

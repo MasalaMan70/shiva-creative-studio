@@ -53,7 +53,7 @@ export default function WorkPage() {
         <SectionHeading
           label="Portfolio"
           title="Selected Work"
-          description="Real brands. Real content. Real results. Every project starts with a script and ends with impact."
+          description="Branded content that drives real results. Every project starts with deep research and ends with impact."
         />
 
         <PortfolioGrid projects={PROJECTS} />
