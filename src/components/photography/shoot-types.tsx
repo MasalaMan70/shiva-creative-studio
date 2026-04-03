@@ -3,36 +3,29 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Section, SectionHeading } from "@/components/ui/section";
-import { User, ShoppingBag, Sparkles, Palette } from "lucide-react";
+import { User, ShoppingBag, Sparkles } from "lucide-react";
 
 const SHOOT_TYPES = [
   {
-    title: "Portraits & Headshots",
-    description:
-      "Professional portraits, personal branding, and headshots. Studio or on-location with professional lighting.",
-    icon: User,
-    image: "/photos/thumb/portraits/b1081164.jpg",
-  },
-  {
-    title: "Brand & Product",
+    title: "Ecommerce",
     description:
       "Ecommerce, lookbook, and lifestyle product photography. Styled, directed, and retouched for your brand.",
     icon: ShoppingBag,
     image: "/photos/thumb/ecommerce/dscf5790.jpg",
   },
   {
-    title: "Events & Lifestyle",
+    title: "Portraits",
     description:
-      "Event coverage, travel, and lifestyle photography. Candid moments and editorial compositions.",
-    icon: Sparkles,
-    image: "/photos/thumb/travel/dscf3898.jpg",
+      "Professional portraits, personal branding, and headshots. Studio or on-location with professional lighting.",
+    icon: User,
+    image: "/photos/thumb/portraits/b1081164.jpg",
   },
   {
-    title: "Custom / Creative",
+    title: "Travel",
     description:
-      "Have a concept in mind? Let's bring it to life. Creative direction, location scouting, and full production.",
-    icon: Palette,
-    image: "/photos/thumb/ecommerce/b0044770.jpg",
+      "Travel, street, and lifestyle photography. Candid moments and editorial compositions.",
+    icon: Sparkles,
+    image: "/photos/thumb/travel/dscf3898.jpg",
   },
 ];
 
@@ -44,7 +37,7 @@ export function ShootTypes() {
         title="Photography Services"
         description="Every session is planned, directed, and edited to deliver images that work for your brand."
       />
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {SHOOT_TYPES.map((type, i) => (
           <motion.div
             key={type.title}

@@ -12,10 +12,9 @@ export interface Photo {
 }
 
 export const CATEGORY_LABELS: Record<string, string> = {
+  ecommerce: "Ecommerce",
   portraits: "Portraits",
-  ecommerce: "Brand & Product",
-  travel: "Events & Lifestyle",
-  uncategorized: "Other",
+  travel: "Travel",
 };
 
 export function getAllPhotos(): Photo[] {

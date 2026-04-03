@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { CATEGORY_LABELS, type Photo } from "@/lib/photos";
 import { Lightbox } from "./lightbox";
 
-const FILTERS = ["all", "portraits", "ecommerce", "travel"] as const;
+const FILTERS = ["all", "ecommerce", "portraits", "travel"] as const;
 
 export function MasonryGallery({ photos }: { photos: Photo[] }) {
   const [activeFilter, setActiveFilter] = useState<string>("all");
