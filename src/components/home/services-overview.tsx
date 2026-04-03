@@ -1,50 +1,104 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Video, Camera, Share2, Target } from "lucide-react";
-import { Section, SectionHeading } from "@/components/ui/section";
-import { SERVICES } from "@/lib/constants";
+import Image from "next/image";
+import { Section } from "@/components/ui/section";
 
-const iconMap = {
-  video: Video,
-  camera: Camera,
-  share2: Share2,
-  target: Target,
-};
+const METHODS = [
+  {
+    number: "01",
+    title: "Videography",
+    description:
+      "Cinema-grade video production built around scripts that convert. Short-form, long-form, testimonials, and brand stories — all shot to sell.",
+  },
+  {
+    number: "02",
+    title: "Photography",
+    description:
+      "Directed, lit, and retouched brand photography. Product, lifestyle, portrait — planned around your content calendar and business goals.",
+  },
+  {
+    number: "03",
+    title: "Social Media",
+    description:
+      "Strategy, content creation, and platform management that turns followers into customers. Every post is scripted, not templated.",
+  },
+];
 
 export function ServicesOverview() {
   return (
     <Section>
-      <SectionHeading
-        label="What We Do"
-        title="Full-Service Creative Production"
-        description="Strategy, scripting, production, and distribution — all under one roof. Every piece of content is built to move your audience toward a buying decision."
-      />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mb-10 text-center md:mb-16"
+      >
+        <h2 className="font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+          The method <em className="italic">behind the<br />movement</em>
+        </h2>
+      </motion.div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {SERVICES.map((service, i) => {
-          const Icon = iconMap[service.icon];
-          return (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group rounded-sm border border-border/50 bg-surface p-8 transition-all duration-300 hover:border-accent/30"
-            >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-sm bg-accent/10 text-accent transition-colors group-hover:bg-accent/20">
-                <Icon size={24} />
+      <div className="grid items-start gap-10 md:grid-cols-2 md:gap-16">
+        {/* Left — Photo */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="overflow-hidden rounded-lg"
+        >
+          <Image
+            src="/photos/full/portraits/b1081164.jpg"
+            alt="Shiva Pawar — Creative Director"
+            width={800}
+            height={1000}
+            className="w-full object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        </motion.div>
+
+        {/* Right — Bio + Method */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <p className="text-base leading-relaxed text-foreground md:text-lg">
+            A founder who built a brand that sells predominantly through social media,
+            Shiva learned firsthand that content without strategy is noise. His approach
+            now blends cinematic production with conversion-driven scripting — focusing
+            on storytelling, brand identity, and revenue in equal measure.
+          </p>
+
+          <div className="mt-10 md:mt-14">
+            <p className="mb-1 font-display text-lg font-semibold tracking-tight">
+              The method
+            </p>
+            <div className="border-t border-foreground/20" />
+
+            {METHODS.map((method) => (
+              <div key={method.number}>
+                <div className="flex gap-6 py-6 md:py-8">
+                  <span className="shrink-0 font-display text-sm text-muted">
+                    {method.number}
+                  </span>
+                  <div>
+                    <h3 className="font-display text-base font-bold">
+                      {method.title}
+                    </h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted">
+                      {method.description}
+                    </p>
+                  </div>
+                </div>
+                <div className="border-t border-foreground/10" />
               </div>
-              <h3 className="font-display text-lg font-semibold">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {service.description}
-              </p>
-            </motion.div>
-          );
-        })}
+            ))}
+          </div>
+        </motion.div>
       </div>
     </Section>
   );
