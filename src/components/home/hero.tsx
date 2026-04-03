@@ -6,7 +6,7 @@ import { Play } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-surface" />
 
@@ -30,7 +30,7 @@ export function Hero() {
             Full Stack Creative Studio
           </p>
 
-          <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl">
+          <h1 className="font-display text-[2.75rem] font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl">
             Content That
             <br />
             <span className="text-accent">Sells.</span>
@@ -56,22 +56,22 @@ export function Hero() {
             View Work
           </Button>
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-muted">
-              Scroll
-            </span>
-            <div className="h-8 w-[1px] animate-pulse bg-gradient-to-b from-muted to-transparent" />
-          </div>
-        </motion.div>
       </div>
+
+      {/* Scroll indicator — hidden on mobile to avoid overlap */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 md:block"
+      >
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-muted">
+            Scroll
+          </span>
+          <div className="h-8 w-[1px] animate-pulse bg-gradient-to-b from-muted to-transparent" />
+        </div>
+      </motion.div>
     </section>
   );
 }

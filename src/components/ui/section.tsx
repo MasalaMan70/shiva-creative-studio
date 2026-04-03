@@ -8,7 +8,7 @@ interface SectionProps {
 
 export function Section({ children, className, id }: SectionProps) {
   return (
-    <section id={id} className={cn("py-20 md:py-28", className)}>
+    <section id={id} className={cn("py-14 md:py-20 lg:py-28", className)}>
       <div className="mx-auto max-w-6xl px-6">{children}</div>
     </section>
   );
@@ -32,7 +32,7 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        "mb-16",
+        "mb-10 md:mb-16",
         align === "center" && "text-center",
         className
       )}

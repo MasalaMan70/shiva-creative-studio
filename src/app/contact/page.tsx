@@ -55,7 +55,7 @@ export default function ContactPage() {
                 Prefer to talk?
               </p>
               <p className="mt-2 text-sm text-muted">
-                Skip the form and book a free 15-minute discovery call.
+                Skip the form and book a 20-minute discovery call.
               </p>
               <a
                 href="/book"

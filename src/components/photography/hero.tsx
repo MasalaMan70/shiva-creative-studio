@@ -3,11 +3,10 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Camera } from "lucide-react";
 
 export function PhotographyHero({ heroImage }: { heroImage: string }) {
   return (
-    <section className="relative flex min-h-[70vh] items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden md:min-h-[70vh]">
       <Image
         src={heroImage}
         alt="Photography by Shiva"
@@ -23,12 +22,7 @@ export function PhotographyHero({ heroImage }: { heroImage: string }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="mb-6 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
-            <Camera size={14} className="mr-2 inline" />
-            Photographer for Hire
-          </p>
-
-          <h1 className="font-display text-5xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl">
+          <h1 className="font-display text-4xl font-bold leading-[1.1] tracking-tight md:text-7xl lg:text-8xl">
             Book a
             <br />
             <span className="text-accent">Photoshoot</span>

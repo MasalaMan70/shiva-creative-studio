@@ -13,7 +13,7 @@ export function PhotographyCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="rounded-sm border border-border/50 bg-background p-12 text-center md:p-20"
+          className="rounded-sm border border-border/50 bg-background p-8 text-center md:p-12 lg:p-20"
         >
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-accent">
             Let&apos;s Create
