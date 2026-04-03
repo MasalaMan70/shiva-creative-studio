@@ -43,21 +43,20 @@ export function ServicesOverview() {
         </h2>
       </motion.div>
 
-      <div className="grid items-start gap-10 md:grid-cols-2 md:gap-16">
+      <div className="grid items-stretch gap-10 md:grid-cols-2 md:gap-16">
         {/* Left — Photo */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="overflow-hidden rounded-lg"
+          className="relative min-h-[500px] overflow-hidden rounded-lg md:min-h-0"
         >
           <Image
             src="/profilepic.jpg"
             alt="Shiva Pawar — Creative Director"
-            width={800}
-            height={1000}
-            className="w-full object-cover"
+            fill
+            className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
         </motion.div>
