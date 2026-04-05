@@ -53,11 +53,12 @@ export function ServicesOverview() {
           className="relative min-h-[500px] overflow-hidden rounded-lg md:min-h-0"
         >
           <Image
-            src="/profilepic.jpg"
+            src="/profilepic-hq.jpg"
             alt="Shiva Pawar — Creative Director"
             fill
             className="object-cover object-top"
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 768px) 100vw, 800px"
+            quality={90}
           />
         </motion.div>
 
