@@ -58,7 +58,7 @@ export function ServicesOverview() {
             fill
             className="object-cover object-top"
             sizes="(max-width: 768px) 100vw, 800px"
-            quality={90}
+            unoptimized
           />
         </motion.div>
 

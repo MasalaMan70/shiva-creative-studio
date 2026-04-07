@@ -2,30 +2,37 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/ui/section";
 
 const FEATURED_PROJECTS = [
   {
-    title: "The Urban Indian",
+    title: "The Cricket Collection",
     category: "Brand Content",
-    description: "Full creative production for a desi-inspired streetwear brand. Video, photo, and social media strategy.",
-    tags: ["Videography", "Photography", "Social Media"],
+    description:
+      "Directed and shot the Cricket Collection campaign for The Urban Indian — merging classic cricket aesthetics with streetwear identity.",
+    tags: ["Photography", "Art Direction"],
+    image: "/photos/full/ecommerce/7.jpg",
     slug: "the-urban-indian",
   },
   {
-    title: "Project Two",
-    category: "Video Production",
-    description: "Coming soon — a showcase of cinematic brand storytelling.",
-    tags: ["Videography", "Scripting"],
-    slug: "#",
+    title: "TUI Lifestyle Campaign",
+    category: "Social Media",
+    description:
+      "Lifestyle content strategy and production for TUI's social channels. Scripted, shot, and posted to drive engagement and sales.",
+    tags: ["Social Media", "Photography"],
+    image: "/photos/full/ecommerce/dscf7129.jpg",
+    slug: "the-urban-indian",
   },
   {
-    title: "Project Three",
-    category: "Social Media",
-    description: "Coming soon — results-driven social media management.",
-    tags: ["Social Media", "Paid Ads"],
-    slug: "#",
+    title: "The Flowers of India",
+    category: "Product Photography",
+    description:
+      "Product and lookbook photography for TUI's Flowers of India collection — hand-embroidered pieces shot for ecommerce and social.",
+    tags: ["Photography", "Ecommerce"],
+    image: "/photos/full/ecommerce/dscf8885.jpg",
+    slug: "the-urban-indian",
   },
 ];
 
@@ -48,28 +55,27 @@ export function FeaturedWork() {
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             <Link
-              href={project.slug === "#" ? "#" : `/work/${project.slug}`}
+              href={`/work/${project.slug}`}
               className="group block"
             >
-              {/* Placeholder thumbnail */}
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm bg-surface-light">
-                <div className="absolute inset-0 flex items-center justify-center text-muted/30">
-                  <span className="text-sm uppercase tracking-widest">
-                    {project.category}
-                  </span>
-                </div>
-                <div className="absolute inset-0 bg-accent/0 transition-all duration-300 group-hover:bg-accent/5" />
+              <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-foreground/0 transition-all duration-300 group-hover:bg-foreground/5" />
                 <div className="absolute right-4 top-4 opacity-0 transition-opacity group-hover:opacity-100">
-                  <ArrowUpRight size={20} className="text-accent" />
+                  <ArrowUpRight size={20} className="text-white drop-shadow-md" />
                 </div>
               </div>
 
               <div className="mt-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
-                    {project.category}
-                  </span>
-                </div>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
+                  {project.category}
+                </span>
                 <h3 className="mt-1 font-display text-xl font-semibold transition-colors group-hover:text-accent">
                   {project.title}
                 </h3>
