@@ -29,7 +29,7 @@ export default function ContactPage() {
                   Email
                 </span>
               </div>
-              <p className="mt-2 text-muted">hello@example.com</p>
+              <p className="mt-2 text-muted">shivapawar@outlook.com</p>
             </div>
             <div>
               <div className="flex items-center gap-3 text-accent">

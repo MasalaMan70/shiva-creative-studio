@@ -58,7 +58,7 @@ export async function submitContactForm(
 
       await resend.emails.send({
         from: "Shiva Website <onboarding@resend.dev>",
-        to: process.env.NOTIFICATION_EMAIL || "hello@example.com",
+        to: process.env.NOTIFICATION_EMAIL || "shivapawar@outlook.com",
         subject: `New Inquiry: ${result.data.name} — ${result.data.business}`,
         html: `
           <h2>New Client Inquiry</h2>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { SITE_NAME, NAV_LINKS } from "@/lib/constants";
-import { Camera, Video, Briefcase } from "lucide-react";
+import { Camera, Video } from "lucide-react";
 
 export function Footer() {
   return (
@@ -48,7 +48,7 @@ export function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/_shiva_pawar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-footer-text/60 transition-colors hover:text-footer-text"
@@ -57,22 +57,13 @@ export function Footer() {
                 <Camera size={20} />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://tiktok.com/@shivapawar1205"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-footer-text/60 transition-colors hover:text-footer-text"
-                aria-label="YouTube"
+                aria-label="TikTok"
               >
                 <Video size={20} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-footer-text/60 transition-colors hover:text-footer-text"
-                aria-label="LinkedIn"
-              >
-                <Briefcase size={20} />
               </a>
             </div>
             <div className="mt-6 flex gap-4 text-xs text-footer-text/40">
