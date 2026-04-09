@@ -27,7 +27,7 @@ const METHODS = [
 
 export function ServicesOverview() {
   return (
-    <Section>
+    <Section className="pt-6 md:pt-10 lg:pt-14">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
