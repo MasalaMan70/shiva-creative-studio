@@ -65,11 +65,11 @@ export default async function CaseStudyPage({
       {/* Hero */}
       <Section>
         <a
-          href="/work"
+          href="/portfolio?tab=branded"
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted transition-colors hover:text-accent"
         >
           <ArrowLeft size={16} />
-          Back to Work
+          Back to Portfolio
         </a>
 
         <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">

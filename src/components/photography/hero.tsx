@@ -43,7 +43,7 @@ export function PhotographyHero({ heroImage }: { heroImage: string }) {
           <Button href="/book" size="lg">
             Book a Session
           </Button>
-          <Button href="/photography/gallery" variant="outline" size="lg">
+          <Button href="/portfolio?tab=photo" variant="outline" size="lg">
             View Gallery
           </Button>
         </motion.div>

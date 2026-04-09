@@ -41,7 +41,7 @@ export function GalleryPreview({ photos }: { photos: Photo[] }) {
         ))}
       </div>
       <div className="mt-10 text-center">
-        <Button href="/photography/gallery" variant="outline" size="lg">
+        <Button href="/portfolio?tab=photo" variant="outline" size="lg">
           View Full Gallery
           <ArrowRight size={14} className="ml-2" />
         </Button>

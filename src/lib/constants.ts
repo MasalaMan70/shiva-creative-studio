@@ -5,8 +5,7 @@ export const SITE_DESCRIPTION =
 export const FOUNDER_NAME = "Shiva Pawar";
 
 export const NAV_LINKS = [
-  { label: "Work", href: "/work" },
-  { label: "Photography", href: "/photography" },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },

@@ -55,7 +55,7 @@ export function FeaturedWork() {
             transition={{ duration: 0.5, delay: i * 0.1 }}
           >
             <Link
-              href={`/work/${project.slug}`}
+              href={`/portfolio?tab=branded`}
               className="group block"
             >
               <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
@@ -98,10 +98,10 @@ export function FeaturedWork() {
 
       <div className="mt-12 text-center">
         <Link
-          href="/work"
+          href="/portfolio"
           className="inline-flex items-center gap-2 text-sm text-accent transition-colors hover:text-accent-hover"
         >
-          View All Work
+          View Full Portfolio
           <ArrowUpRight size={16} />
         </Link>
       </div>
