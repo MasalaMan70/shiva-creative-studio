@@ -11,13 +11,17 @@ import { VideoGrid } from "./video-grid";
 import type { Photo } from "@/lib/photos";
 import type { Project } from "@/data/projects";
 
+// To bring a tab back, just flip its `enabled` flag to true. All the
+// rendering code for video/branded below is kept intact and ready to use.
 const TABS = [
-  { id: "photo", label: "Photo", icon: Camera },
-  { id: "video", label: "Video", icon: Video },
-  { id: "branded", label: "Branded Content", icon: Briefcase },
+  { id: "photo", label: "Photo", icon: Camera, enabled: true },
+  { id: "video", label: "Video", icon: Video, enabled: false },
+  { id: "branded", label: "Branded Content", icon: Briefcase, enabled: false },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
+
+const VISIBLE_TABS = TABS.filter((t) => t.enabled);
 
 export function PortfolioTabs({
   photos,
@@ -33,7 +37,7 @@ export function PortfolioTabs({
   const router = useRouter();
   const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<TabId>(
-    (TABS.find((t) => t.id === initialTab)?.id) ?? "photo"
+    (VISIBLE_TABS.find((t) => t.id === initialTab)?.id) ?? "photo"
   );
 
   function switchTab(tab: TabId) {
@@ -46,9 +50,10 @@ export function PortfolioTabs({
 
   return (
     <>
-      {/* Tab bar */}
+      {/* Tab bar — hidden when only one tab is enabled */}
+      {VISIBLE_TABS.length > 1 && (
       <div className="mb-10 flex flex-wrap justify-center gap-3">
-        {TABS.map((tab) => {
+        {VISIBLE_TABS.map((tab) => {
           const Icon = tab.icon;
           return (
             <button
@@ -67,6 +72,7 @@ export function PortfolioTabs({
           );
         })}
       </div>
+      )}
 
       {/* Tab content */}
       <AnimatePresence mode="wait">

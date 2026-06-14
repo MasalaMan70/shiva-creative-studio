@@ -8,7 +8,7 @@ import { CTA } from "@/components/home/cta";
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Browse Shiva's portfolio — photography, video content, and branded campaigns. Real work, real brands, real results.",
+    "Browse Shiva's photography portfolio — portraits, brands, products, and events. Real work, real brands, real results.",
 };
 
 export default async function PortfolioPage({
@@ -32,7 +32,7 @@ export default async function PortfolioPage({
             Selected Work
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted">
-            Photography, video, and branded content — all produced to drive real results.
+            A selection of photography — portraits, brands, products, and events.
           </p>
         </div>
 
