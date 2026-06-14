@@ -197,30 +197,6 @@ export const EVENT_STATS = [
   { value: "2 wk", label: "Standard delivery" },
 ] as const;
 
-export const EVENT_TESTIMONIALS = [
-  {
-    quote:
-      "Shiva captured our wedding exactly how it felt — not just how it looked. The highlight film had our whole family in tears. Worth every penny.",
-    name: "Sample Client",
-    role: "Wedding",
-    company: "Newlywed",
-  },
-  {
-    quote:
-      "We needed conference photos turned around overnight for press, and Shiva delivered a gallery by morning. Professional, fast, invisible in the room.",
-    name: "Sample Client",
-    role: "Events Lead",
-    company: "Corporate Client",
-  },
-  {
-    quote:
-      "Booked Shiva for my mom's 60th and he made everyone comfortable. The candids are the ones we framed. Already booking him again.",
-    name: "Sample Client",
-    role: "Private Celebration",
-    company: "Family Event",
-  },
-] as const;
-
 export const TESTIMONIALS = [
   {
     quote:

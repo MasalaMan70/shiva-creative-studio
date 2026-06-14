@@ -6,7 +6,6 @@ import {
   EVENT_TYPES,
   EVENT_PACKAGES,
   EVENT_ADDONS,
-  EVENT_TESTIMONIALS,
 } from "@/lib/constants";
 import {
   Heart,
@@ -19,7 +18,6 @@ import {
   ArrowRight,
   MessageSquare,
   CalendarCheck,
-  Star,
 } from "lucide-react";
 import Image from "next/image";
 import { EventsHero } from "./events-hero";
@@ -308,36 +306,8 @@ export default function EventsPage() {
         </div>
       </Section>
 
-      {/* Testimonials */}
-      <Section className="bg-surface">
-        <SectionHeading label="Reviews" title="What Clients Say" />
-        <div className="grid gap-6 md:grid-cols-3">
-          {EVENT_TESTIMONIALS.map((t, i) => (
-            <div
-              key={i}
-              className="flex flex-col rounded-sm border border-border/50 bg-background p-8"
-            >
-              <div className="mb-4 flex gap-1 text-accent">
-                {Array.from({ length: 5 }).map((_, s) => (
-                  <Star key={s} size={14} fill="currentColor" />
-                ))}
-              </div>
-              <p className="flex-1 text-sm leading-relaxed text-foreground">
-                “{t.quote}”
-              </p>
-              <div className="mt-6 border-t border-border/50 pt-4">
-                <p className="font-display text-sm font-bold">{t.name}</p>
-                <p className="text-xs text-muted">
-                  {t.role} · {t.company}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       {/* FAQ */}
-      <Section>
+      <Section className="bg-surface">
         <SectionHeading label="FAQ" title="Common Questions" />
         <div className="mx-auto max-w-3xl">
           <EventFAQ />
@@ -345,7 +315,7 @@ export default function EventsPage() {
       </Section>
 
       {/* Final CTA */}
-      <Section className="bg-surface">
+      <Section>
         <div className="text-center">
           <h2 className="font-display text-3xl font-bold md:text-4xl">
             Let&apos;s capture your event
