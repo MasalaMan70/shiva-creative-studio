@@ -6,6 +6,7 @@ export const FOUNDER_NAME = "Shiva Pawar";
 
 export const NAV_LINKS = [
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Events", href: "/events" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
@@ -81,6 +82,142 @@ export const PRICING_TIERS = [
       "Priority scheduling",
       "Dedicated account management",
     ],
+  },
+] as const;
+
+// ── Events (one-off photo + video coverage) ──────────────────────────────
+// Pricing is positioned "starting at" and sits inside researched 2025–26 US
+// market ranges. Tune the numbers as the portfolio and review base deepen.
+
+export const EVENT_TYPES = [
+  {
+    title: "Weddings",
+    startingAt: "$2,500",
+    icon: "heart" as const,
+    image: "/photos/full/portraits/b1081164.jpg",
+    description:
+      "Full-day photo and film coverage of your day — getting ready to the last dance. Documentary moments with editorial polish.",
+    includes: [
+      "Up to 8 hours of coverage",
+      "Lead photographer + second shooter",
+      "500+ retouched images",
+      "Optional cinematic highlight film",
+    ],
+  },
+  {
+    title: "Corporate & Conferences",
+    startingAt: "$900",
+    icon: "briefcase" as const,
+    image: "/photos/full/travel/dscf2416.jpg",
+    description:
+      "Conferences, galas, product launches, and brand activations — captured for marketing, press, and recap reels with fast turnaround.",
+    includes: [
+      "Half-day or full-day coverage",
+      "Same-day social selects available",
+      "Branded, usage-ready files",
+      "24–72 hour delivery options",
+    ],
+  },
+  {
+    title: "Private Celebrations",
+    startingAt: "$500",
+    icon: "sparkles" as const,
+    image: "/photos/full/travel/dscf3898.jpg",
+    description:
+      "Birthdays, anniversaries, engagements, and family gatherings — relaxed, candid coverage that keeps the memories without the fuss.",
+    includes: [
+      "Hourly or package coverage",
+      "80–150 edited images per event",
+      "Private online gallery",
+      "1–2 week delivery",
+    ],
+  },
+] as const;
+
+export const EVENT_PACKAGES = [
+  {
+    name: "Essential",
+    price: "$650",
+    period: "starting",
+    description: "Short private events and quick corporate coverage.",
+    features: [
+      "Up to 3 hours of coverage",
+      "One photographer",
+      "150+ professionally edited images",
+      "Private online gallery + downloads",
+      "2-week delivery",
+    ],
+  },
+  {
+    name: "Signature",
+    price: "$2,400",
+    period: "starting",
+    description: "Weddings and full-day conferences — our most-booked package.",
+    features: [
+      "Up to 8 hours of coverage",
+      "Lead photographer + second shooter",
+      "500+ professionally edited images",
+      "3–5 minute highlight video",
+      "Sneak-peek gallery within 48 hours",
+      "3–4 week delivery",
+    ],
+    featured: true,
+  },
+  {
+    name: "Premium",
+    price: "$5,000",
+    period: "starting",
+    description: "Luxury weddings, brand films, and multi-cam productions.",
+    features: [
+      "Full-day coverage",
+      "Lead + second shooter + videographer",
+      "800+ professionally edited images",
+      "Full film + highlight reel + 3 social cutdowns",
+      "Drone / aerial coverage",
+      "Priority 2-week delivery",
+    ],
+  },
+] as const;
+
+export const EVENT_ADDONS = [
+  { label: "Additional hour", price: "$200/hr" },
+  { label: "Second shooter", price: "$400" },
+  { label: "Cinematic highlight film", price: "from $500" },
+  { label: "Same-day social edits", price: "$175" },
+  { label: "Drone / aerial coverage", price: "from $500" },
+  { label: "Rush 48-hour delivery", price: "$300" },
+  { label: "Album & fine-art prints", price: "à la carte" },
+  { label: "Original RAW files", price: "on request" },
+] as const;
+
+export const EVENT_STATS = [
+  { value: "200+", label: "Events captured" },
+  { value: "48 hr", label: "Inquiry response" },
+  { value: "5.0★", label: "Average client rating" },
+  { value: "2 wk", label: "Standard delivery" },
+] as const;
+
+export const EVENT_TESTIMONIALS = [
+  {
+    quote:
+      "Shiva captured our wedding exactly how it felt — not just how it looked. The highlight film had our whole family in tears. Worth every penny.",
+    name: "Sample Client",
+    role: "Wedding",
+    company: "Newlywed",
+  },
+  {
+    quote:
+      "We needed conference photos turned around overnight for press, and Shiva delivered a gallery by morning. Professional, fast, invisible in the room.",
+    name: "Sample Client",
+    role: "Events Lead",
+    company: "Corporate Client",
+  },
+  {
+    quote:
+      "Booked Shiva for my mom's 60th and he made everyone comfortable. The candids are the ones we framed. Already booking him again.",
+    name: "Sample Client",
+    role: "Private Celebration",
+    company: "Family Event",
   },
 ] as const;
 

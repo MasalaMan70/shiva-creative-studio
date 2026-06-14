@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 
 const SERVICE_OPTIONS = [
+  "Event / Wedding Coverage",
   "Videography",
   "Photography",
   "Social Media Management",
@@ -14,6 +15,7 @@ const SERVICE_OPTIONS = [
 ];
 
 const BUDGET_OPTIONS = [
+  "One-time event (details in message)",
   "Under $2,000/mo",
   "$2,000 – $3,500/mo",
   "$3,500 – $6,000/mo",
