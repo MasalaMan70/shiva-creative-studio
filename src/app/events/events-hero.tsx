@@ -7,7 +7,7 @@ import { EVENT_STATS } from "@/lib/constants";
 
 export function EventsHero({ heroImage }: { heroImage: string }) {
   return (
-    <section className="relative flex min-h-[68vh] items-center justify-center overflow-hidden md:min-h-[78vh]">
+    <section className="relative flex min-h-[68vh] items-center justify-center overflow-hidden pb-16 pt-28 md:min-h-[78vh] md:pt-32">
       <Image
         src={heroImage}
         alt="Event photography and videography by Shiva"
@@ -57,10 +57,13 @@ export function EventsHero({ heroImage }: { heroImage: string }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4"
+          className="mx-auto mt-12 flex w-full max-w-md items-end justify-between"
         >
-          {EVENT_STATS.map((stat) => (
-            <div key={stat.label} className="text-center">
+          {EVENT_STATS.map((stat, i) => (
+            <div
+              key={stat.label}
+              className={i === 0 ? "text-left" : "text-right"}
+            >
               <p className="font-display text-2xl font-bold text-white md:text-3xl">
                 {stat.value}
               </p>

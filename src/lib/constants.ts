@@ -191,9 +191,7 @@ export const EVENT_ADDONS = [
 ] as const;
 
 export const EVENT_STATS = [
-  { value: "200+", label: "Events captured" },
   { value: "48 hr", label: "Inquiry response" },
-  { value: "5.0★", label: "Average client rating" },
   { value: "2 wk", label: "Standard delivery" },
 ] as const;
 
