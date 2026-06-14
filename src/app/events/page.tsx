@@ -102,7 +102,10 @@ export default function EventsPage() {
                     src={type.image}
                     alt={type.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={cn(
+                      "object-cover transition-transform duration-500 group-hover:scale-105",
+                      "imagePos" in type && type.imagePos
+                    )}
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#2D2A26]/50 to-transparent" />

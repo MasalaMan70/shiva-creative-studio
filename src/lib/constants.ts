@@ -94,13 +94,14 @@ export const EVENT_TYPES = [
     title: "Weddings",
     startingAt: "$2,500",
     icon: "heart" as const,
-    image: "/photos/full/portraits/b1081164.jpg",
+    image: "/photos/events/wedding.jpg",
+    imagePos: "object-[center_25%]",
     description:
       "Full-day photo and film coverage of your day — getting ready to the last dance. Documentary moments with editorial polish.",
     includes: [
       "Up to 8 hours of coverage",
       "Lead photographer + second shooter",
-      "500+ retouched images",
+      "250+ retouched images",
       "Optional cinematic highlight film",
     ],
   },
