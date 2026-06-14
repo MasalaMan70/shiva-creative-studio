@@ -181,11 +181,11 @@ export const EVENT_PACKAGES = [
 ] as const;
 
 export const EVENT_ADDONS = [
-  { label: "Additional hour", price: "$200/hr" },
+  { label: "Additional hour", price: "$150/hr" },
   { label: "Second shooter", price: "$400" },
-  { label: "Cinematic highlight film", price: "from $500" },
+  { label: "Cinematic highlight film", price: "from $350" },
   { label: "Same-day social edits", price: "$175" },
-  { label: "Drone / aerial coverage", price: "from $500" },
+  { label: "Drone / aerial coverage", price: "from $400" },
   { label: "Rush 48-hour delivery", price: "$300" },
   { label: "Album & fine-art prints", price: "à la carte" },
   { label: "Original RAW files", price: "on request" },
