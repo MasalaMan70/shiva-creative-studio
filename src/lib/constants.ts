@@ -157,7 +157,7 @@ export const EVENT_PACKAGES = [
     features: [
       "Up to 8 hours of coverage",
       "Lead photographer + second shooter",
-      "500+ professionally edited images",
+      "250+ professionally edited images",
       "3–5 minute highlight video",
       "Sneak-peek gallery within 48 hours",
       "3–4 week delivery",
@@ -172,7 +172,7 @@ export const EVENT_PACKAGES = [
     features: [
       "Full-day coverage",
       "Lead + second shooter + videographer",
-      "800+ professionally edited images",
+      "400+ professionally edited images",
       "Full film + highlight reel + 3 social cutdowns",
       "Drone / aerial coverage",
       "Priority 2-week delivery",
