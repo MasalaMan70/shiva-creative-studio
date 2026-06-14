@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { EVENT_STATS } from "@/lib/constants";
 
@@ -50,6 +51,21 @@ export function EventsHero({ heroImage }: { heroImage: string }) {
           <Button href="#packages" variant="outline" size="lg" className="!text-white !border-white/40 hover:!border-white hover:!text-white">
             View Packages
           </Button>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-6"
+        >
+          <a
+            href="/portfolio"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 underline decoration-white/40 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
+          >
+            See the full portfolio
+            <ArrowRight size={14} />
+          </a>
         </motion.div>
 
         {/* Trust stats */}
