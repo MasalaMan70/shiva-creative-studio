@@ -174,18 +174,19 @@ nav.nav-hidden{transform:translateY(-110%)}
   text-align:center;padding:5rem 5vw 5rem;overflow:hidden;
 }
 #particles{position:absolute;inset:0;z-index:1;width:100%;height:100%}
+.hero-bg{position:absolute;inset:0;z-index:0;will-change:transform,opacity}
 .hero-glow{
   position:absolute;z-index:0;left:50%;top:52%;
-  width:min(100vw,960px);aspect-ratio:1;
+  width:min(90vw,860px);aspect-ratio:1;
   transform:translate(-50%,-50%);
-  background:radial-gradient(ellipse 62% 23% at 50% 50%, rgba(110,30,180,.85) 0%, rgba(60,10,120,.4) 42%, transparent 70%);
+  background:radial-gradient(ellipse 58% 25% at 50% 50%, rgba(158,50,232,.97) 0%, rgba(132,37,218,.76) 18%, rgba(104,28,186,.54) 36%, rgba(76,20,146,.31) 55%, rgba(50,13,108,.12) 74%, transparent 90%);
   border-radius:50%;
   animation:glowPulse 7s ease-in-out infinite;
 }
 @keyframes glowPulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.9}50%{transform:translate(-50%,-50%) scale(1.08);opacity:1}}
 .solar{
   position:absolute;z-index:1;left:50%;top:52%;
-  width:min(108vw,1040px);aspect-ratio:1;
+  width:min(94vw,900px);aspect-ratio:1;
   transform:translate(-50%,-50%);
   opacity:.9;pointer-events:none;
 }
@@ -233,7 +234,7 @@ nav.nav-hidden{transform:translateY(-110%)}
 @keyframes meditFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .meditate-svg{width:100%;height:100%;overflow:visible}
 
-.hero-content{position:relative;z-index:2;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:clamp(1.5rem,3.5vw,3.5rem);width:100%;max-width:1180px;text-align:left}
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:clamp(1.5rem,3.5vw,3.5rem);width:100%;max-width:1500px;text-align:left}
 .hero-left{flex:0 1 auto;min-width:0}
 .hero-right{flex:0 1 auto;display:flex;flex-direction:column;align-items:center}
 @media(max-width:880px){
@@ -317,8 +318,8 @@ nav.nav-hidden{transform:translateY(-110%)}
 
 .hero-title{
   font-family:var(--serif);font-weight:300;
-  font-size:clamp(2.7rem,6.6vw,6rem);
-  line-height:1.0;color:var(--moon);
+  font-size:clamp(2.3rem,5.4vw,5rem);
+  line-height:1.04;color:var(--moon);
   letter-spacing:-.02em;
 }
 .hero-title .line{display:block;padding:.06em 0;white-space:nowrap}
@@ -744,6 +745,7 @@ footer{position:relative;padding:5rem 4vw 2.5rem;border-top:1px solid rgba(160,8
 
 <!-- HERO -->
 <section id="hero" data-bg="#16241b" data-fg="#f2ecda">
+  <div class="hero-bg">
   <div class="hero-glow"></div>
   <svg class="solar" viewBox="0 0 800 800" aria-hidden="true">
     <!-- faint central glow -->
@@ -762,16 +764,15 @@ footer{position:relative;padding:5rem 4vw 2.5rem;border-top:1px solid rgba(160,8
     <circle class="planet p5" r="7"  cx="800" cy="400" data-rx="400" data-ry="136" data-dur="85" data-phase="4.7"/>
   </svg>
   <canvas id="particles"></canvas>
-  <!-- Meditating Figure -->
+  </div>
 
   <div class="hero-content">
     <div class="hero-left">
       <p class="hero-eyebrow">For founders, owners, and creators</p>
       <h1 class="hero-title" id="heroTitle">
-        <span class="line" data-text="Your"></span>
-        <span class="line" data-text="business"></span>
-        <span class="line" data-text="deserves"></span>
-        <span class="line" data-text="a *brain*"></span>
+        <span class="line" data-text="your business"></span>
+        <span class="line" data-text="should revolve"></span>
+        <span class="line" data-text="around *YOU*"></span>
       </h1>
     </div>
     <div class="hero-right">
@@ -1100,6 +1101,8 @@ intro
   .to('.hero-tagline', { opacity: 1, duration: 1.2, ease: 'power2.out' }, '-=0.5')
   .to('.hero-cta', { opacity: 1, duration: 1, ease: 'power2.out' }, '-=0.7')
   .fromTo('#nav', { yPercent: -120 }, { yPercent: 0, clearProps: 'transform', duration: .8, ease: 'power3.out' }, '-=1');
+/* zoom into the solar system on load (background only — text fades in over the top) */
+if (!reduceMotion) intro.from('.hero-bg', { scale: 0.5, autoAlpha: 0, duration: 2.4, ease: 'power2.out' }, 0);
 
 function startIntro(delay) { setTimeout(() => { if (intro.progress() === 0) intro.play(); if (window.__solarKick) window.__solarKick(); }, delay); }
 
