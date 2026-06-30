@@ -7,7 +7,7 @@
 <title>Pricing &amp; Start — Orbit AI</title>
 <meta name="description" content="Pricing that fits your business. Typical setup ~$2,000 and ~$1,500/mo, with an exact quote on a quick call. Cancel anytime, no contracts." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M24 6C25.1 12 26 12.9 31 14C26 15.1 25.1 16 24 22C22.9 16 22 15.1 17 14C22 12.9 22.9 12 24 6Z' fill='%2319160f'/%3E%3Cpath d='M9 34C17 26 31 26 39 34' stroke='%2319160f' stroke-width='2.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" />
-<link rel="stylesheet" href="pages.css?v=9" />
+<link rel="stylesheet" href="pages.css?v=10" />
 <style>
 /* ── Booking calendar modal ── */
 .bk-overlay{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:1.2rem;background:rgba(25,22,15,.42);backdrop-filter:blur(8px)}
@@ -28,14 +28,14 @@
 .bk-day:hover:not(:disabled){background:rgba(25,22,15,.28)}
 .bk-day:disabled{opacity:.22;cursor:default}
 .bk-day.empty{background:none;cursor:default}
-.bk-day.sel{background:var(--ink);color:var(--bg);font-weight:600}
+.bk-day.sel{background:linear-gradient(135deg,#dbb868,#c9a050);color:var(--ink);font-weight:600}
 .bk-slots,.bk-fields{margin-top:1.3rem;display:none}
 .bk-slots.show{display:block}.bk-fields.show{display:flex;flex-direction:column;gap:.75rem}
 .bk-slots h4,.bk-fields h4{font-size:.64rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
 .bk-slot-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
 .bk-slot{padding:.8rem .6rem;border:1px solid rgba(25,22,15,.3);background:rgba(25,22,15,.03);color:var(--moon);border-radius:.7rem;cursor:pointer;font-family:var(--serif);font-size:.98rem;transition:border-color .2s,background .2s,color .2s}
 .bk-slot:hover{border-color:var(--gold-br)}
-.bk-slot.sel{background:var(--ink);color:var(--bg);border-color:transparent}
+.bk-slot.sel{background:linear-gradient(135deg,#dbb868,#c9a050);color:var(--ink);border-color:transparent}
 .bk-row2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
 .bk-fields input{font-family:var(--sans);font-size:1rem;color:var(--moon);background:rgba(25,22,15,.04);border:1px solid rgba(25,22,15,.25);border-radius:.7rem;padding:.85rem 1rem;width:100%}
 .bk-fields input::placeholder{color:rgba(42,38,28,.35)}
@@ -43,7 +43,7 @@
 .bk-pay{margin-top:.3rem;padding-top:1rem;border-top:1px solid rgba(25,22,15,.18)}
 .bk-pay-note{font-size:.78rem;line-height:1.55;color:var(--fg-dim)}
 .bk-pay-note em{font-style:italic;color:var(--gold-br)}
-.bk-confirm{margin-top:.6rem;border:none;cursor:pointer;font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--bg);padding:1rem;border-radius:3rem}
+.bk-confirm{margin-top:.6rem;border:none;cursor:pointer;font-family:var(--sans);font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);padding:1rem;border-radius:3rem}
 .bk-confirm:disabled{opacity:.45;cursor:default;filter:grayscale(.3)}
 .bk-success{text-align:center;padding:1.4rem .5rem}
 .bk-success .ok{font-size:2.2rem;color:var(--gold-br)}
@@ -51,7 +51,7 @@
 .bk-success p{color:var(--fg-dim);font-size:.95rem;line-height:1.7}
 .bk-success b{color:var(--gold-br);font-weight:500}
 .bk-actions{display:flex;flex-direction:column;gap:.7rem;margin-top:1.4rem}
-.bk-actions .bk-gcal{display:inline-block;text-decoration:none;color:var(--bg);font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:.95rem 1.4rem;border-radius:3rem}
+.bk-actions .bk-gcal{display:inline-block;text-decoration:none;color:var(--ink);font-size:.72rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:.95rem 1.4rem;border-radius:3rem}
 .bk-actions .bk-ics{font-size:.8rem;letter-spacing:.04em;color:var(--gold-br);text-decoration:none;opacity:.85}
 .bk-actions .bk-ics:hover{text-decoration:underline}
 /* pricing tweaks */
