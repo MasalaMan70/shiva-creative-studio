@@ -36,7 +36,9 @@ nav{
   background:rgba(5,2,15,.82);backdrop-filter:blur(14px);
   border-bottom:1px solid rgba(160,80,230,.14);
 }
-.nav-brand{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+.nav-brand{display:flex;align-items:center;gap:.55rem;text-decoration:none}
+.nav-mark{height:1.6rem;width:auto;color:var(--gold-br);flex-shrink:0;filter:drop-shadow(0 0 7px rgba(224,191,126,.4))}
+.foot-mark{height:2.2rem;width:auto;color:var(--gold-br);flex-shrink:0;filter:drop-shadow(0 0 8px rgba(224,191,126,.35))}
 .nav-chip{
   width:42px;height:42px;border-radius:50%;background:var(--cream);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
