@@ -138,6 +138,11 @@ nav{
 .p-fact{text-align:center}
 .p-fact .v{font-family:var(--serif);font-size:1.28rem;font-weight:400;color:var(--moon)}
 .p-fact .k{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-dim);margin-top:.35rem}
+@media(max-width:560px){
+  .p-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:start}
+  .p-fact .v{font-size:1.02rem;line-height:1.25}
+  .p-fact .k{font-size:.56rem}
+}
 
 /* ── sections ── */
 .p-section{padding:4.5rem 0}
