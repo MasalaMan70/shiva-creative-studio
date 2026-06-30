@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BANDS — Your business deserves a brain</title>
-<meta name="description" content="One dashboard. One text message. Everything that matters, handled. BANDS gives local business owners a command center that watches everything, knows everything, and answers anything — in plain English." />
+<meta name="description" content="One place to see all your data. One platform to talk to your AI. BANDS gives business owners a command center that watches everything, knows everything, and answers anything — in plain English." />
 <meta property="og:title" content="BANDS — Your business deserves a brain" />
-<meta property="og:description" content="One dashboard. One text message. Everything that matters, handled." />
+<meta property="og:description" content="One place to see all your data. One platform to talk to your AI." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M24 4 40 13V31L24 40 8 31V13Z' fill='none' stroke='%23e0bf7e' stroke-width='2'/%3E%3Ccircle cx='24' cy='22' r='4' fill='%23e0bf7e'/%3E%3C/svg%3E" />
 <!-- Local brand font: Almarena Mono (see @font-face below) -->
 <style>
@@ -175,6 +175,7 @@ nav.nav-hidden{transform:translateY(-110%)}
 }
 #particles{position:absolute;inset:0;z-index:1;width:100%;height:100%}
 .hero-bg{position:absolute;inset:0;z-index:0;will-change:transform,opacity}
+.hero-zoom{position:absolute;inset:0;z-index:0;will-change:transform,opacity}
 .hero-glow{
   position:absolute;z-index:0;left:50%;top:52%;
   width:min(90vw,860px);aspect-ratio:1;
@@ -371,7 +372,7 @@ nav.nav-hidden{transform:translateY(-110%)}
   padding:1.6rem 0;border-top:1px solid rgba(160,80,230,.15);border-bottom:1px solid rgba(160,80,230,.15);
   overflow:hidden;white-space:nowrap;
 }
-.marquee-track{display:inline-flex;gap:3.5rem;will-change:transform;animation:marquee 28s linear infinite}
+.marquee-track{display:inline-flex;gap:3.5rem;will-change:transform;animation:marquee 43s linear infinite}
 .marquee-item{
   font-family:var(--serif);font-style:italic;font-weight:300;
   font-size:1.25rem;color:var(--fg-dim);letter-spacing:.08em;
@@ -510,6 +511,14 @@ section{position:relative}
   max-width:1240px;margin:0 auto;
 }
 @media(max-width:1080px){.paths-grid{grid-template-columns:1fr 1fr}}
+/* mobile: solar a touch higher, tighter vertical gaps */
+@media(max-width:700px){
+  .hero-glow,.solar{top:44%}
+  #manifesto{padding:13vh 0 6vh}
+  .stats{margin-top:3rem;gap:1.8rem 3rem}
+  #paths-intro{padding:7vh 0 4vh}
+  #paths{padding:4vh 5vw 9vh}
+}
 .path-card{
   position:relative;
   border-radius:1.6rem;padding:clamp(1.8rem,2.6vw,2.8rem);
@@ -746,6 +755,8 @@ footer{position:relative;padding:5rem 4vw 2.5rem;border-top:1px solid rgba(160,8
 <!-- HERO -->
 <section id="hero" data-bg="#16241b" data-fg="#f2ecda">
   <div class="hero-bg">
+  <canvas id="particles"></canvas>
+  <div class="hero-zoom">
   <div class="hero-glow"></div>
   <svg class="solar" viewBox="0 0 800 800" aria-hidden="true">
     <!-- faint central glow -->
@@ -763,7 +774,7 @@ footer{position:relative;padding:5rem 4vw 2.5rem;border-top:1px solid rgba(160,8
     <circle class="planet p4" r="13" cx="740" cy="400" data-rx="340" data-ry="116" data-dur="63" data-phase="3.5"/>
     <circle class="planet p5" r="7"  cx="800" cy="400" data-rx="400" data-ry="136" data-dur="85" data-phase="4.7"/>
   </svg>
-  <canvas id="particles"></canvas>
+  </div>
   </div>
 
   <div class="hero-content">
@@ -801,7 +812,7 @@ footer{position:relative;padding:5rem 4vw 2.5rem;border-top:1px solid rgba(160,8
   <div class="shell">
     <p class="kicker">Why this exists</p>
     <p class="manifesto-text" id="manifestoText">
-      You built this business. You should be working on it — not <em>working for it.</em>
+      You built your business. You should be working on it — not <em>working for it.</em>
     </p>
     <p class="manifesto-body rv">I built this because I was drowning in my own business. Checking numbers everywhere. Answering customer emails late at night. Meetings just to figure out what happened in the <em>last</em> meeting.</p>
     <p class="manifesto-body rv">I was spending so much time running the business that I didn't have time for the business. So I built something that watched everything for me — and answered when I asked.</p>
@@ -811,11 +822,11 @@ footer{position:relative;padding:5rem 4vw 2.5rem;border-top:1px solid rgba(160,8
     <p class="manifesto-body rv">No apps to learn. No dashboards to babysit. You talk to it like a person, and the little stuff stops landing on your desk.</p>
     <p class="manifesto-sig rv">— BANDS · Atlanta —</p>
     <div class="patriji-row rv">
-      <p class="manifesto-patriji">The whole promise in one line: <strong>one dashboard, one text message, everything that matters — handled.</strong> No setup on your end. No new software to learn. It just works, quietly, in the background.</p>
+      <p class="manifesto-patriji">The whole promise in one line: <strong>one place where all your data can be seen, one platform to communicate with your AI — handled.</strong> No setup on your end. No new software to learn. It just works, quietly, in the background.</p>
     </div>
     <div class="stats">
       <div class="stat rv"><div class="num"><span data-count="10">0</span><sup>+</sup></div><div class="lbl">Hours back each week</div></div>
-      <div class="stat rv"><div class="num"><span data-count="5">0</span></div><div class="lbl">Logins → one dashboard</div></div>
+      <div class="stat rv"><div class="num"><span data-count="5">0</span><sup>+</sup></div><div class="lbl">Data sources → one hub</div></div>
       <div class="stat rv"><div class="num"><span data-count="60">0</span><sup>s</sup></div><div class="lbl">Your week, summarized</div></div>
     </div>
   </div>
@@ -1101,8 +1112,11 @@ intro
   .to('.hero-tagline', { opacity: 1, duration: 1.2, ease: 'power2.out' }, '-=0.5')
   .to('.hero-cta', { opacity: 1, duration: 1, ease: 'power2.out' }, '-=0.7')
   .fromTo('#nav', { yPercent: -120 }, { yPercent: 0, clearProps: 'transform', duration: .8, ease: 'power3.out' }, '-=1');
-/* zoom into the solar system on load (background only — text fades in over the top) */
-if (!reduceMotion) intro.from('.hero-bg', { scale: 0.5, autoAlpha: 0, duration: 2.4, ease: 'power2.out' }, 0);
+/* zoom into the solar system on load (solar + glow zoom; the starfield stays full-bleed and just fades in, so no empty edges appear) */
+if (!reduceMotion) {
+  intro.from('.hero-zoom', { scale: 0.5, autoAlpha: 0, duration: 2.4, ease: 'power2.out' }, 0);
+  intro.from('#particles', { autoAlpha: 0, duration: 1.8, ease: 'power2.out' }, 0);
+}
 
 function startIntro(delay) { setTimeout(() => { if (intro.progress() === 0) intro.play(); if (window.__solarKick) window.__solarKick(); }, delay); }
 
