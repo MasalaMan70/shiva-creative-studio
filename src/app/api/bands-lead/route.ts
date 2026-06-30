@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// Lead capture for the B.A.N.D.S. site (served statically at /ai).
+// Lead capture for the Orbit AI site (served statically at /ai).
 // Reuses the same Resend config as the photo-site contact form.
 export async function POST(req: NextRequest) {
   try {
@@ -28,19 +28,19 @@ export async function POST(req: NextRequest) {
     const resendKey = process.env.RESEND_API_KEY;
     const subject =
       kind === "Call request"
-        ? `B.A.N.D.S. — Call request from ${name || email}`
-        : `B.A.N.D.S. — New lead from ${name || email}`;
+        ? `Orbit AI — Call request from ${name || email}`
+        : `Orbit AI — New lead from ${name || email}`;
 
     if (resendKey) {
       const { Resend } = await import("resend");
       const resend = new Resend(resendKey);
       await resend.emails.send({
-        from: "B.A.N.D.S. Website <onboarding@resend.dev>",
+        from: "Orbit AI Website <onboarding@resend.dev>",
         to: process.env.NOTIFICATION_EMAIL || "shivapawar@outlook.com",
         replyTo: email || undefined,
         subject,
         html: `
-          <h2>${kind === "Call request" ? "New call request" : "New lead"} — B.A.N.D.S.</h2>
+          <h2>${kind === "Call request" ? "New call request" : "New lead"} — Orbit AI</h2>
           <p><strong>Name:</strong> ${name || "—"}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone || "—"}</p>
@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
         `,
       });
     } else {
-      console.log("📩 B.A.N.D.S. lead:", { kind, name, email, business, phone, date, time, message });
+      console.log("📩 Orbit AI lead:", { kind, name, email, business, phone, date, time, message });
     }
 
     return NextResponse.json({ ok: true });
