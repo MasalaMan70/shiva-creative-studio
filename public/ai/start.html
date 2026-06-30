@@ -37,9 +37,12 @@
 .bk-slot:hover{border-color:var(--gold-br)}
 .bk-slot.sel{background:linear-gradient(135deg,#dbb868,#c9a050);color:var(--ink);border-color:transparent}
 .bk-row2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-.bk-fields input{font-family:var(--sans);font-size:1rem;color:var(--moon);background:rgba(255,255,255,.04);border:1px solid rgba(160,80,230,.25);border-radius:.7rem;padding:.85rem 1rem;width:100%}
+.bk-fields input,.bk-fields select{font-family:var(--sans);font-size:1rem;color:var(--moon);background:rgba(255,255,255,.04);border:1px solid rgba(160,80,230,.25);border-radius:.7rem;padding:.85rem 1rem;width:100%}
 .bk-fields input::placeholder{color:rgba(240,234,255,.35)}
-.bk-fields input:focus{outline:none;border-color:var(--gold-br)}
+.bk-fields input:focus,.bk-fields select:focus{outline:none;border-color:var(--gold-br)}
+.bk-fields select{appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%23e0bf7e' stroke-width='1.4'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;background-size:.7rem;padding-right:2.4rem}
+.bk-fields select:invalid{color:rgba(240,234,255,.35)}
+.bk-fields select option{background:#140a26;color:var(--moon)}
 .bk-pay{margin-top:.3rem;padding-top:1rem;border-top:1px solid rgba(160,80,230,.18)}
 .bk-pay-note{font-size:.78rem;line-height:1.55;color:var(--fg-dim)}
 .bk-pay-note em{font-style:italic;color:var(--gold-br)}
@@ -198,6 +201,14 @@
         <input type="email" id="bkEmail" placeholder="Email *" autocomplete="email" required />
         <input type="tel"   id="bkPhone" placeholder="Phone number *" autocomplete="tel" required />
         <input type="text"  id="bkBusiness" placeholder="Business name (optional)" autocomplete="organization" />
+        <select id="bkRevenue" required aria-label="Average monthly revenue">
+          <option value="" disabled selected>Average monthly revenue *</option>
+          <option value="Under $15k / month">Under $15k / month</option>
+          <option value="$15k – $40k / month">$15k – $40k / month</option>
+          <option value="$40k – $100k / month">$40k – $100k / month</option>
+          <option value="$100k – $250k / month">$100k – $250k / month</option>
+          <option value="$250k+ / month">$250k+ / month</option>
+        </select>
         <input type="text" id="bkCompanyHp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
         <div class="bk-pay">
           <p class="bk-pay-note">No payment now — this is a free call. We'll talk through pricing live. <em>You can add the call to your calendar after.</em></p>
@@ -235,6 +246,7 @@ document.querySelectorAll('.rv:not(.in)').forEach(el => io.observe(el));
   const emailIn = document.getElementById('bkEmail');
   const phoneIn = document.getElementById('bkPhone');
   const bizIn = document.getElementById('bkBusiness');
+  const revIn = document.getElementById('bkRevenue');
   const hpIn = document.getElementById('bkCompanyHp');
   const confirmBtn = document.getElementById('bkConfirm');
 
@@ -298,9 +310,11 @@ document.querySelectorAll('.rv:not(.in)').forEach(el => io.observe(el));
   function updateConfirm(){
     confirmBtn.disabled = !(selDate && selSlot
       && firstIn.value.trim() && lastIn.value.trim()
-      && validEmail(emailIn.value.trim()) && validPhone(phoneIn.value.trim()));
+      && validEmail(emailIn.value.trim()) && validPhone(phoneIn.value.trim())
+      && revIn.value);
   }
   [firstIn, lastIn, emailIn, phoneIn].forEach(el => el.addEventListener('input', updateConfirm));
+  revIn.addEventListener('change', updateConfirm);
 
   const pad = n => String(n).padStart(2,'0');
   const fmt = d => d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'T'+pad(d.getHours())+pad(d.getMinutes())+'00';
@@ -333,15 +347,16 @@ document.querySelectorAll('.rv:not(.in)').forEach(el => io.observe(el));
     const first = firstIn.value.trim(), last = lastIn.value.trim();
     const email = emailIn.value.trim(), phone = phoneIn.value.trim();
     const business = bizIn.value.trim();
+    const revenue = revIn.value;
     const name = first + ' ' + last;
     confirmBtn.textContent = 'Sending…'; confirmBtn.disabled = true;
     const ev = buildEvent(name, email);
     const payload = {
       kind: 'Call request',
-      name, email, phone, business,
+      name, email, phone, business, revenue,
       company: hpIn.value,
       date: prettyDate(selDate), time: selSlot,
-      message: 'Requested a free intro call.'
+      message: 'Requested a free intro call. Monthly revenue: ' + revenue + '.'
     };
     fetch('/api/bands-lead', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)})
       .finally(() => {

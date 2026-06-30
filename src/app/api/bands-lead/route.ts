@@ -9,6 +9,7 @@ export async function POST(req: NextRequest) {
     const name = String(data.name ?? "").trim();
     const email = String(data.email ?? "").trim();
     const business = String(data.business ?? "").trim();
+    const revenue = String(data.revenue ?? "").trim();
     const phone = String(data.phone ?? "").trim();
     const message = String(data.message ?? "").trim();
     const kind = String(data.kind ?? "Lead").trim(); // "Lead" | "Call request"
@@ -28,8 +29,8 @@ export async function POST(req: NextRequest) {
     const resendKey = process.env.RESEND_API_KEY;
     const subject =
       kind === "Call request"
-        ? `Orbit AI — Call request from ${name || email}`
-        : `Orbit AI — New lead from ${name || email}`;
+        ? `Orbit AI — Call request from ${name || email}${revenue ? ` (${revenue})` : ""}`
+        : `Orbit AI — New lead from ${name || email}${revenue ? ` (${revenue})` : ""}`;
 
     if (resendKey) {
       const { Resend } = await import("resend");
@@ -45,6 +46,7 @@ export async function POST(req: NextRequest) {
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone || "—"}</p>
           <p><strong>Business:</strong> ${business || "—"}</p>
+          <p><strong>Monthly revenue:</strong> ${revenue || "—"}</p>
           ${date ? `<p><strong>Preferred date:</strong> ${date}</p>` : ""}
           ${time ? `<p><strong>Preferred time:</strong> ${time}</p>` : ""}
           <hr />
@@ -53,7 +55,7 @@ export async function POST(req: NextRequest) {
         `,
       });
     } else {
-      console.log("📩 Orbit AI lead:", { kind, name, email, business, phone, date, time, message });
+      console.log("📩 Orbit AI lead:", { kind, name, email, business, revenue, phone, date, time, message });
     }
 
     return NextResponse.json({ ok: true });
